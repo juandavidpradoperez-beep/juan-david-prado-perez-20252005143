@@ -1,0 +1,28 @@
+import numpy as np
+
+# Matriz de prueba
+M = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 10]])
+det_M = np.linalg.det(M)
+
+print("--- Verificación de Propiedades ---")
+
+# P1: Transpuesta
+print(f"1. det(M) == det(M.T): {np.isclose(det_M, np.linalg.det(M.T))}")
+
+# P2: Fila de Ceros
+M_cero = M.copy()
+M_cero[1, :] = 0
+print(f"2. Fila de ceros (det=0): {np.isclose(np.linalg.det(M_cero), 0)}")
+
+# P3: Intercambio de filas (Cambio de signo)
+M_inter = M[[1, 0, 2], :] # Intercambia Fila 0 y 1
+print(f"3. Intercambio filas (signo opuesto): {np.isclose(det_M, -np.linalg.det(M_inter))}")
+
+# P4: Filas iguales
+M_igual = M.copy()
+M_igual[0] = M_igual[2]
+print(f"4. Filas iguales (det=0): {np.isclose(np.linalg.det(M_igual), 0)}")
+
+# P9: Producto det(A*B) = det(A)*det(B)
+B = np.random.rand(3,3)
+print(f"9. Propiedad del producto: {np.isclose(np.linalg.det(M @ B), det_M * np.linalg.det(B))}")
