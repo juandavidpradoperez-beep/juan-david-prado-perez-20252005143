@@ -1,0 +1,28 @@
+import statistics
+
+# Lista de datos para análisis estadístico
+data = [1, 2, 3, 4, 5, 5, 6]
+
+# Calcular media (promedio)
+media = statistics.mean(data)
+print(f"Media: {media}")
+
+# Calcular mediana (valor central)
+mediana = statistics.median(data)
+print(f"Mediana: {mediana}")
+
+# Calcular moda (valor que más se repite)
+moda = statistics.mode(data)
+print(f"Moda: {moda}")
+
+# Calcular varianza (dispersión respecto a la media)
+varianza = statistics.variance(data)
+print(f"Varianza: {varianza}")
+
+# Calcular desviación estándar (raíz cuadrada de la varianza)
+desviacion_estandar = statistics.stdev(data)
+print(f"Desviación estándar: {desviacion_estandar}")
+
+# Calcular rango (diferencia entre máximo y mínimo)
+rango = max(data) - min(data)
+print(f"Rango: {rango}")
